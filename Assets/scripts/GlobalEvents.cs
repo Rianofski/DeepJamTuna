@@ -6,5 +6,6 @@ namespace DefaultNamespace
     {
         public static Action FoxColliderTriggered;
         public static Action FoxObjectCollected;
+        public static Action PlayerDetectedToAngel;
     }
 }
