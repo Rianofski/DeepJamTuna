@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class InteractableObjectScript : MonoBehaviour
@@ -31,7 +32,8 @@ public class InteractableObjectScript : MonoBehaviour
             {
                 StopAllCoroutines();
                 alindi = true;
-                StartCoroutine(OyuncuyaGit());//her obje envantere gitmek zorunda deðil
+                GlobalEvents.FoxObjectCollected?.Invoke();
+                StartCoroutine(OyuncuyaGit());//her obje envantere gitmek zorunda deï¿½il
             }
         }
     }
