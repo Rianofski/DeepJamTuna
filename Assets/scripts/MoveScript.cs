@@ -117,7 +117,7 @@ public class MoveScript : MonoBehaviour
 
         Vector3 speed=new (0,0,0);
         Vector3 newSped;
-        if ((Input.GetKey(KeyCode.LeftShift)) & (canclimb || isClimbing) && !isWallJumping)//TIRMANMAYA GÝRÝÞ
+        if ((Input.GetKey(KeyCode.LeftShift)) & (canclimb || isClimbing) && !isWallJumping)//TIRMANMAYA Gï¿½Rï¿½ï¿½
         {
             PlayerObject.GetComponent<Animator>().SetBool("Tirmanista", true);
             nonClimbingTime = 0;
@@ -126,8 +126,8 @@ public class MoveScript : MonoBehaviour
       
 
            GetComponent<Rigidbody>().useGravity = false;
-            GetComponent<Rigidbody>().drag = Climbdrag;//çýkýþta düzeltmeyi unutma
-            isJumping = false;//zýplarsa stamina düþecek
+            GetComponent<Rigidbody>().drag = Climbdrag;//ï¿½ï¿½kï¿½ï¿½ta dï¿½zeltmeyi unutma
+            isJumping = false;//zï¿½plarsa stamina dï¿½ï¿½ecek
             isClimbing = true;
             newSped = new(0, 0, 0);
             bool duruyomu = true;
@@ -180,14 +180,14 @@ public class MoveScript : MonoBehaviour
             else
                 PlayerObject.GetComponent<Animator>().speed =1;
 
-            if (Input.GetKey(KeyCode.Space))//zýplýyor ve aslýnda çýktý týrmanmadan
+            if (Input.GetKey(KeyCode.Space))//zï¿½plï¿½yor ve aslï¿½nda ï¿½ï¿½ktï¿½ tï¿½rmanmadan
             {
                 PlayerObject.gameObject.GetComponent<Animator>().SetBool("Havadami", true);
                 StaminaChange(-ZiplamaStaminaCost);
                 isWallJumping = true;
                 GetComponent<Rigidbody>().useGravity = true;
-                GetComponent<Rigidbody>().drag = originalDrag;//çýkýþta düzeltmeyi unutma
-                isJumping = false;//zýplarsa stamina düþecek
+                GetComponent<Rigidbody>().drag = originalDrag;//ï¿½ï¿½kï¿½ï¿½ta dï¿½zeltmeyi unutma
+                isJumping = false;//zï¿½plarsa stamina dï¿½ï¿½ecek
                 isClimbing = false;
                 speed = MyRigidbdoy.velocity;
                 newSped = new(speed.x, JumpMag, speed.z);
@@ -200,7 +200,7 @@ public class MoveScript : MonoBehaviour
         else if(isWallJumping)
         {
             PlayerObject.GetComponent<Animator>().SetBool("Tirmanista", false);
-            if (Input.GetKeyUp(KeyCode.LeftShift))//zýplarken shifti býraktýðýnda tekrar shite basarsa týrmanmaya devam edecek
+            if (Input.GetKeyUp(KeyCode.LeftShift))//zï¿½plarken shifti bï¿½raktï¿½ï¿½ï¿½nda tekrar shite basarsa tï¿½rmanmaya devam edecek
             {
                 isWallJumping = false;
                 canDash = true;
@@ -212,15 +212,15 @@ public class MoveScript : MonoBehaviour
         }
 
 
-        if(isClimbing&& (Input.GetKeyUp(KeyCode.LeftShift)||!canclimb))//týrmanmadan çýkýþ
+        if(isClimbing&& (Input.GetKeyUp(KeyCode.LeftShift)||!canclimb))//tï¿½rmanmadan ï¿½ï¿½kï¿½ï¿½
         {
             GetComponent<Rigidbody>().useGravity = true;
-            GetComponent<Rigidbody>().drag = originalDrag;//çýkýþta düzeltmeyi unutma
+            GetComponent<Rigidbody>().drag = originalDrag;//ï¿½ï¿½kï¿½ï¿½ta dï¿½zeltmeyi unutma
 
             GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity / 4;
 
             
-            isJumping = false;//zýplarsa stamina düþecek
+            isJumping = false;//zï¿½plarsa stamina dï¿½ï¿½ecek
             isClimbing = false;
             canjump = false;
             canDash = true;
