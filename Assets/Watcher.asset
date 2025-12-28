@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac84002fbaaa4435b735b54502c260e, type: 3}
+  m_Name: Watcher
+  m_EditorClassIdentifier: 
+  noteID: note_guardian
+  incompleteSentence: "Yol kenar\u0131nda duran alt\u0131 bacakl\u0131 varl\u0131\u011F\u0131
+    inceliyorum. Alt\u0131n rengi k\xFCrk\xFC metal gibi parl\u0131yor. G\xF6\u011Fs\xFC
+    inip kalkm\u0131yor, alt\u0131 g\xF6z\xFC de donuk bir cam k\xFCreyi and\u0131r\u0131yor.
+    Kar\u015F\u0131mda duran \u015Feyin canl\u0131 olup olmad\u0131\u011F\u0131ndan
+    emin de\u011Filim.\""
+  optionSurfaceText: Overview
+  resultSurfaceText: "Muazzam bir sanat eseri. Her detay\u0131 o kadar ince i\u015Flenmi\u015F
+    ki, bu d\xFCnyay\u0131 yaratanlar\u0131n estetik anlay\u0131\u015F\u0131na hayran
+    kalmamak elde de\u011Fil. Sanki canl\u0131ym\u0131\u015F gibi duran bir an\u0131t."
+  optionDeepText: Lore
+  resultDeepText: "Bu bir heykel de\u011Fil, uyuyan bir tehdit. Nefes alm\u0131yor
+    \xE7\xFCnk\xFC ya\u015Fam\u0131yor; sadece emredilece\u011Fi an\u0131 bekliyor.
+    O bir canl\u0131dan \xE7ok, kutsal bir amaca hizmet eden biyolojik bir silah."
+  unlocksLore: 0

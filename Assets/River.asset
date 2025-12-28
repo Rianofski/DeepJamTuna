@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac84002fbaaa4435b735b54502c260e, type: 3}
+  m_Name: River
+  m_EditorClassIdentifier: 
+  noteID: note_river
+  incompleteSentence: "Nehir yata\u011F\u0131nda akan bu s\u0131v\u0131, bildi\u011Fim
+    suya hi\xE7 benzemiyor. Berrak ama yo\u011Funlu\u011Fu \xE7ok farkl\u0131; sanki
+    yer\xE7ekimine meydan okuyor. Elimi dald\u0131rd\u0131\u011F\u0131mda parmaklar\u0131m\u0131n
+    aras\u0131ndan s\xFCz\xFCl\xFC\u015F\xFC bile bir tuhaf. Akm\u0131yor, s\xFCz\xFCl\xFCyor."
+  optionSurfaceText: Overview
+  resultSurfaceText: "Y\xFCz\xFCme \xE7arpt\u0131\u011F\u0131mda hissetti\u011Fim
+    tek \u015Fey keskin bir ferahl\u0131k. Susuzlu\u011Fumu dindirmese de zihnimi
+    a\xE7\u0131yor. Bu gezegenin suyu bile insana garip bir enerji veriyor."
+  optionDeepText: Lore
+  resultDeepText: "Bu su de\u011Fil, s\u0131v\u0131la\u015Fm\u0131\u015F bir \u0131\u015F\u0131k.
+    Tenimi \u0131slatm\u0131yor, sadece i\xE7inden ge\xE7ip gidiyor. Sanki bu gezegenin
+    damarlar\u0131nda kan yerine saf enerji ak\u0131yor. Madde ile manan\u0131n kar\u0131\u015Ft\u0131\u011F\u0131
+    yer buras\u0131 olmal\u0131."
+  unlocksLore: 0
