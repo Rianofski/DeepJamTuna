@@ -13,6 +13,7 @@ public class MoveScript : MonoBehaviour
     public bool isJumping = false;
     public bool isClimbing = false;
     public bool isWallJumping = false;
+    public bool CannotMove = false;
 
     float originalVeloMag;
     public float veloMag = 5;
@@ -35,6 +36,7 @@ public class MoveScript : MonoBehaviour
 
    
     public float TirmanmaAcisi;
+    public float TirmanmaAcisiPitch;
     bool DuvarYanalEksenTirmanilabilir;
     float nonClimbingTime = 0;
 
@@ -61,7 +63,7 @@ public class MoveScript : MonoBehaviour
         float angle = Vector2.SignedAngle(tempV1, tempV2);
 
 
-        if (Vector3.SqrMagnitude(MyRB.velocity) >= 0.2f&&!isClimbing)
+        if (Vector3.SqrMagnitude(MyRB.velocity) >= 0.2f&&!isClimbing&&!CannotMove)
         {
             PlayerObject.rotation = Quaternion.Euler(0, angle, 0);
             PlayerObject.gameObject.GetComponent<Animator>().SetBool("Walking", true);
@@ -73,7 +75,6 @@ public class MoveScript : MonoBehaviour
         
         if(isClimbing)
         {
-
             PlayerObject.rotation = Quaternion.Euler(0, TirmanmaAcisi, 0);
         }
         else
@@ -117,8 +118,9 @@ public class MoveScript : MonoBehaviour
 
         Vector3 speed=new (0,0,0);
         Vector3 newSped;
-        if ((Input.GetKey(KeyCode.LeftShift)) & (canclimb || isClimbing) && !isWallJumping)//TIRMANMAYA GÝRÝÞ
+        if ((Input.GetKey(KeyCode.LeftShift)) & (canclimb || isClimbing) && !isWallJumping&&!CannotMove)//TIRMANMAYA GÝRÝÞ
         {
+            PlayerObject.gameObject.GetComponent<Animator>().SetBool("Havadami", false);
             PlayerObject.GetComponent<Animator>().SetBool("Tirmanista", true);
             nonClimbingTime = 0;
             StaminaChange(-Time.deltaTime * staminaConstant);
@@ -165,6 +167,9 @@ public class MoveScript : MonoBehaviour
                 speed = MyRigidbdoy.velocity;
 
                 newSped = new(speed.x, veloMag, speed.z);
+                //newSped = new(speed.x - veloMag * Mathf.Cos(TirmanmaAcisiPitch), veloMag * Mathf.Sin(TirmanmaAcisiPitch), speed.z);
+
+                 
                 MyRigidbdoy.velocity = newSped;
             }
             if (Input.GetKey(KeyCode.S))
@@ -182,18 +187,20 @@ public class MoveScript : MonoBehaviour
 
             if (Input.GetKey(KeyCode.Space))//zýplýyor ve aslýnda çýktý týrmanmadan
             {
+                TirmanmadanCikis();
+
                 PlayerObject.gameObject.GetComponent<Animator>().SetBool("Havadami", true);
                 StaminaChange(-ZiplamaStaminaCost);
                 isWallJumping = true;
-                GetComponent<Rigidbody>().useGravity = true;
-                GetComponent<Rigidbody>().drag = originalDrag;//çýkýþta düzeltmeyi unutma
-                isJumping = false;//zýplarsa stamina düþecek
-                isClimbing = false;
+                //GetComponent<Rigidbody>().useGravity = true;
+                //GetComponent<Rigidbody>().drag = originalDrag;//çýkýþta düzeltmeyi unutma
+                //isJumping = false;//zýplarsa stamina düþecek
+                //isClimbing = false;
                 speed = MyRigidbdoy.velocity;
                 newSped = new(speed.x, JumpMag, speed.z);
                 MyRigidbdoy.velocity = newSped;
 
-                canjump = false;  
+                //canjump = false;  
             }
             StaminaMaviBar.GetComponent<Image>().fillAmount = stamina / 100f;
         }
@@ -214,20 +221,19 @@ public class MoveScript : MonoBehaviour
 
         if(isClimbing&& (Input.GetKeyUp(KeyCode.LeftShift)||!canclimb))//týrmanmadan çýkýþ
         {
-            GetComponent<Rigidbody>().useGravity = true;
-            GetComponent<Rigidbody>().drag = originalDrag;//çýkýþta düzeltmeyi unutma
+            TirmanmadanCikis();
+            //GetComponent<Rigidbody>().useGravity = true;
+            //GetComponent<Rigidbody>().drag = originalDrag;//çýkýþta düzeltmeyi unutma
 
-            GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity / 4;
-
-            
-            isJumping = false;//zýplarsa stamina düþecek
-            isClimbing = false;
-            canjump = false;
-            canDash = true;
+            //GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity / 4;
+            //isJumping = false;//zýplarsa stamina düþecek
+            //isClimbing = false;
+            //canjump = false;
+            //canDash = true;
         }
         
 
-        if(!isClimbing)
+        if(!isClimbing&&!CannotMove)
         {
             //if(canDash&& stamina > DashStaminaCost && (Input.GetKey(KeyCode.Q)))//DASH ATMA
             //{
@@ -327,18 +333,48 @@ public class MoveScript : MonoBehaviour
         {
             PlayerObject.gameObject.GetComponent<Animator>().SetBool("Havadami", false);
             PlayerObject.GetComponent<Animator>().SetTrigger("Landing");
-            StartCoroutine(ZiplamadanLandingBekleme());
+            StartCoroutine(ZiplamadanLandingBekleme()); 
             
           
         }
         if (collision.gameObject.CompareTag("Wall"))
         {
             TirmanmaAcisi = collision.transform.rotation.eulerAngles.y;
+            TirmanmaAcisiPitch= collision.transform.rotation.eulerAngles.x;
             DuvarYanalEksenTirmanilabilir = collision.gameObject.GetComponent<DuvarOzellik>().YanalEksenVarmi;
             canclimb = true;
         }
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("YukariCek")&&isClimbing)
+        {
+            
+            CannotMove = true;
+            TirmanmadanCikis();
+            GetComponent<Rigidbody>().useGravity = false;
+            canclimb = false;
+           
+            StartCoroutine(KendiniYukariCek());
+            //animasyon girecek
+            //bitince CannotMove false olacak
+        }
+    }
+
+    IEnumerator KendiniYukariCek()
+    {
+
+        PlayerObject.gameObject.GetComponent<Animator>().SetTrigger("YukariTirman");
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<Rigidbody>().useGravity = true;
+        yield return new WaitForSeconds(0.55f);
+
+        CannotMove = false;
+       
+    }
+
 
     IEnumerator ZiplamadanLandingBekleme()
     {
@@ -361,6 +397,19 @@ public class MoveScript : MonoBehaviour
         }
     }
 
+    public void TirmanmadanCikis()
+    {
+        GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<Rigidbody>().drag = originalDrag;//çýkýþta düzeltmeyi unutma
+
+        GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity / 4;
+
+
+        isJumping = false;//zýplarsa stamina düþecek
+        isClimbing = false;
+        canjump = false;
+        canDash = true;
+    }
 
     public void StaminaChange(float deltaStamina)
     {

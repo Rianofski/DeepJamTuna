@@ -6,6 +6,7 @@ public class restrart : MonoBehaviour
 {
 
     public Vector3 BaslangicKonumu;
+    public Vector3 BaslangicKonumu2;
 
     private void Start()
     {
@@ -18,6 +19,13 @@ public class restrart : MonoBehaviour
             //oldün
             transform.position = BaslangicKonumu;
         }
+
+        if (other.gameObject.CompareTag("DeathBySuSu"))
+        {
+            //oldün
+            transform.position = BaslangicKonumu2;
+        }
+
     }
     
 }
