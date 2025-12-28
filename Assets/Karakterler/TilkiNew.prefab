@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5654551480733661047}
   - component: {fileID: 8779445357777451218}
   - component: {fileID: 6787536243825970200}
+  - component: {fileID: 1992236673}
+  - component: {fileID: 1992236674}
   m_Layer: 0
   m_Name: TilkiNew
   m_TagString: Untagged
@@ -25,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4986276643371331021}
-  m_LocalRotation: {x: 0, y: -0.73208714, z: -0, w: 0.681211}
+  m_LocalRotation: {x: 0, y: -0.7320854, z: 0, w: 0.68121296}
   m_LocalPosition: {x: 15.47, y: 0.36002612, z: -0.29894012}
-  m_LocalScale: {x: 300, y: 300, z: 300}
+  m_LocalScale: {x: 300.00003, y: 300, z: 300.00003}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,3 +85,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1992236673
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4986276643371331021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15, y: 0.1, z: 0.01}
+  m_Center: {x: -0.0048652603, y: 0.01, z: 0.009941996}
+--- !u!114 &1992236674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4986276643371331021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce3270cb7504c10b789b8edbb197780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
