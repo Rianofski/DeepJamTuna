@@ -7,11 +7,46 @@ public class TilkiBossScript : MonoBehaviour
     public Transform Player;
     public Transform KuyrukTransform;
 
+    public Transform AgizPos;
+    public GameObject FireballObjcet;
+
+    public Transform TilkiHead;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(KuyrukDarbesi());
+        //StartCoroutine(KuyrukDarbesi());
+        StartCoroutine(FireballAt());
     }
+
+    IEnumerator FireballAt()
+    {
+        while(true)//gerekince kapanacak
+        {
+            yield return new WaitForSeconds(3);
+            GetComponent<Animator>().SetTrigger("Attack");
+            yield return new WaitForSeconds(0.1f);
+            Instantiate(FireballObjcet,AgizPos.transform.position,new Quaternion(0,0,0,0));
+            
+        }
+
+
+    }
+
+
+    void FixedUpdate()
+    {
+        //Vector3 HedefVec= Player.position - TilkiHead.transform.position;
+        //float pitchAngle = Mathf.Atan(HedefVec.y/HedefVec.x) * Mathf.Rad2Deg + 45;
+        //float yawAngle = Mathf.Atan(HedefVec.z/HedefVec.x) * Mathf.Rad2Deg;
+
+        //Debug.Log(pitchAngle);Debug.Log(yawAngle);
+        //Debug.Log(HedefVec.y); Debug.Log(HedefVec.x);
+        //Vector3 hold = TilkiHead.transform.localRotation.eulerAngles;
+        //hold.x = pitchAngle;hold.z = yawAngle;
+        //TilkiHead.transform.localRotation = Quaternion.Euler(hold);
+
+    }
+
 
     IEnumerator KuyrukDarbesi()
     {
@@ -54,8 +89,5 @@ public class TilkiBossScript : MonoBehaviour
         StartCoroutine(KuyrukDarbesi());
     }
     // Update is called once per frame
-    void FixedUpdate()
-    {
-      
-    }
+   
 }

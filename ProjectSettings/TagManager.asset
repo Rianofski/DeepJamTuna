@@ -3,16 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Interactable
+  - Zemin
+  - TilkiKuyruk
+  - Wall
+  - YukariCek
+  - DeathBySuSu
+  - TilkiAttack
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Duvar
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Zemin
   - 
   - 
   - 

@@ -7,6 +7,7 @@ namespace DefaultNamespace.FoxLogics
     {
         [SerializeField] private PlayerObjectController playerObjectController;
 
+        public TilkiBossScript tilkiscript;
         private void Start()
         {
             GlobalEvents.FoxColliderTriggered += OnFoxColliderTriggered;
@@ -31,6 +32,11 @@ namespace DefaultNamespace.FoxLogics
                 // (daha anlaşılır olması için reposition animasyon bitince yapılabilir)
                 transform.position = new Vector3(-3.31f, 2.52f, -0.65f);
             }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            //if(other.CompareTag()) tilki boss enable edecek collider
         }
     }
 }
