@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac84002fbaaa4435b735b54502c260e, type: 3}
+  m_Name: GoldenTree
+  m_EditorClassIdentifier: 
+  noteID: note_tree
+  incompleteSentence: "\xD6n\xFCmde y\xFCkselen a\u011Fac\u0131n g\xF6vdesine dokunuyorum.
+    Kabu\u011Fu s\u0131cak ve p\xFCr\xFCzs\xFCz, damarlar\u0131nda nab\u0131z gibi
+    atan hafif bir titre\u015Fim var. Yapraklar\u0131 sonbahar renginde ama asla
+    d\xF6k\xFClm\xFCyorlar; sanki zaman bu a\u011Fa\xE7 i\xE7in durmu\u015F."
+  optionSurfaceText: Overview
+  resultSurfaceText: "Kusursuz bir m\xFCkemmellik. Ne bir \xE7\xFCr\xFCk dal ne de
+    b\xF6cek yenigi var. Bu bah\xE7e, kaosun hi\xE7 u\u011Framad\u0131\u011F\u0131,
+    sonsuza dek b\xF6yle kalacak bir tablo gibi."
+  optionDeepText: Lore
+  resultDeepText: "Bu a\u011Fac\u0131n k\xF6kleri topra\u011F\u0131n alt\u0131na
+    de\u011Fil, varolu\u015Fun kendisine tutunuyor. Beslendi\u011Fi \u015Fey su veya
+    g\xFCne\u015F de\u011Fil; bu diyar\u0131 bir arada tutan o g\xF6r\xFCnmez irade."
+  unlocksLore: 0
